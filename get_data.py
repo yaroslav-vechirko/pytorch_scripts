@@ -6,7 +6,9 @@ from pathlib import Path
 
 import requests
 
-def data_request(root_folder: str, folder_name: str, website_link: str):
+def data_request(root_folder: str="data/",
+ folder_name: str="pizza_steak_sushi",
+ website_link: str="https://github.com/mrdbourke/pytorch-deep-learning/raw/main/data/pizza_steak_sushi.zip"):
   root_folder = root_folder
   folder_name = folder_name
   website_link = website_link
@@ -36,3 +38,8 @@ def data_request(root_folder: str, folder_name: str, website_link: str):
   # Remove zip file
   os.remove(data_path / f"{folder_name}.zip")
   print('All done!')
+
+  train_dir = image_path / 'train'
+  test_dir = image_path / 'test'
+  print(train_dir, test_dir)
+  return train_dir, test_dir
